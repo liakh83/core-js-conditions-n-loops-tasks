@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                             *
@@ -21,8 +22,11 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -38,12 +42,21 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  let maxValue = a;
+  if (b > maxValue) {
+    maxValue = b;
+    return maxValue;
+  }
+  if (c > maxValue) {
+    maxValue = c;
+    return maxValue;
+  }
+  return maxValue;
 }
 
 /**
- * Checks if a queen can capture a king in the next move on an 8x8 chessboard.
+ * Check if a queen can capture a king in the next move on an 8x8 chessboard.
  * See more details at https://en.wikipedia.org/wiki/Queen_(chess)
  *
  * @typedef {{

@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                             *
@@ -56,7 +55,7 @@ function getMaxNumber(a, b, c) {
 }
 
 /**
- * Check if a queen can capture a king in the next move on an 8x8 chessboard.
+ * Checks if a queen can capture a king in the next move on an 8x8 chessboard.
  * See more details at https://en.wikipedia.org/wiki/Queen_(chess)
  *
  * @typedef {{
@@ -101,8 +100,11 @@ function canQueenCaptureKing(queen, king) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a + b > c && b + c > a && c + a > b && (a === b || b === c || c === a)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -119,8 +121,13 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  if (num === 0) return '';
+  if (num >= 10) return `X${convertToRomanNumerals(num - 10)}`;
+  if (num === 9) return `IX${convertToRomanNumerals(num - 9)}`;
+  if (num >= 5) return `V${convertToRomanNumerals(num - 5)}`;
+  if (num === 4) return `IV${convertToRomanNumerals(num - 4)}`;
+  return `I${convertToRomanNumerals(num - 1)}`;
 }
 
 /**
@@ -138,6 +145,7 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
+
 function convertNumberToString(/* numberStr */) {
   throw new Error('Not implemented');
 }
